@@ -1,7 +1,5 @@
 package com.abutua.projectbackend.dto;
 
-import com.abutua.projectbackend.models.Category;
-
 public class ProductResponse {
     private Long id;
     private String name;
@@ -9,17 +7,9 @@ public class ProductResponse {
     private Double price;
     private boolean promotion;
     private boolean newProduct;
-    private Category category;
+    private CategoryResponse category;
 
-    public ProductResponse(Long id, String name, String description, Double price, boolean promotion,
-            boolean newProduct, Category category) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.promotion = promotion;
-        this.newProduct = newProduct;
-        this.category = category;
+    public ProductResponse() {
     }
 
     public String getName() {
@@ -62,11 +52,11 @@ public class ProductResponse {
         this.newProduct = newProduct;
     }
 
-    public Category getCategory() {
+    public CategoryResponse getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryResponse category) {
         this.category = category;
     }
 

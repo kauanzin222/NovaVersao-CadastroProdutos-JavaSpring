@@ -22,10 +22,19 @@ public class ProductRequest {
     private boolean promotion;
     private boolean newProduct;
 
-    private Category category;
+    private IntegerDTO category;
 
     public Product toEntity() {
-        return new Product(name, description, category, promotion, newProduct, price);
+        Product product = new Product();
+
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setNewProduct(newProduct);
+        product.setPromotion(promotion);
+        product.setCategory(new Category(category.getId()));
+
+        return product;
     }
 
     public String getName() {
@@ -68,11 +77,11 @@ public class ProductRequest {
         this.newProduct = newProduct;
     }
 
-    public Category getCategory() {
+    public IntegerDTO getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(IntegerDTO category) {
         this.category = category;
     }
 

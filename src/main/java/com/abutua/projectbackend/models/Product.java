@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
 @Entity
@@ -36,7 +35,6 @@ public class Product implements Serializable {
     private boolean newProduct;
 
     @ManyToOne
-    @Valid
     private Category category;
 
     // Constructor JPA
@@ -54,7 +52,17 @@ public class Product implements Serializable {
     }
 
     public ProductResponse toDTO() {
-        return new ProductResponse(id, name, description, price, promotion, newProduct, category);
+        ProductResponse productResponse = new ProductResponse();
+
+        productResponse.setId(id);
+        productResponse.setName(name);
+        productResponse.setDescription(description);
+        productResponse.setNewProduct(newProduct);
+        productResponse.setPromotion(promotion);
+        productResponse.setPrice(price);
+        productResponse.setCategory(category.toDTO());
+
+        return productResponse;
     }
 
     // Métodos de Produto

@@ -35,10 +35,15 @@ public class Category {
 		this.name = name;
 	}
 
+	public Category(Integer id) {
+		this.id = id;
+	}
+	
+    // Métodos da classe
 	public CategoryResponse toDTO() {
 		return new CategoryResponse(id, name);
 	}
-    // Métodos da classe
+
 	public int getId() {
 		return id;
 	}
