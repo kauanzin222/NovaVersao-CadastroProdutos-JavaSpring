@@ -1,0 +1,81 @@
+package com.abutua.projectbackend.dto;
+
+import com.abutua.projectbackend.models.Category;
+
+public class ProductResponse {
+    private Long id;
+    private String name;
+    private String description;
+    private Double price;
+    private boolean promotion;
+    private boolean newProduct;
+    private Category category;
+
+    public ProductResponse(Long id, String name, String description, Double price, boolean promotion,
+            boolean newProduct, Category category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.promotion = promotion;
+        this.newProduct = newProduct;
+        this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public boolean isPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(boolean promotion) {
+        this.promotion = promotion;
+    }
+
+    public boolean isNewProduct() {
+        return newProduct;
+    }
+
+    public void setNewProduct(boolean newProduct) {
+        this.newProduct = newProduct;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+}

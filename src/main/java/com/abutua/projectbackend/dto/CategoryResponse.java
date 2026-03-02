@@ -1,8 +1,8 @@
 package com.abutua.projectbackend.dto;
 
 public class CategoryResponse {
-    Integer id;
-    String name;
+    private Integer id;
+    private String name;
 
     public CategoryResponse(Integer id, String name) {
         this.id = id;
