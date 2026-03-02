@@ -8,7 +8,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.abutua.projectbackend.dto.CategoryRequest;
 import com.abutua.projectbackend.dto.CategoryResponse;
-import com.abutua.projectbackend.models.Category;
 import com.abutua.projectbackend.services.CategoryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +55,7 @@ public class CategoryController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> updateCategory(@PathVariable int id, @RequestBody Category categoryUpdate) {
+    public ResponseEntity<Void> updateCategory(@PathVariable int id, @RequestBody CategoryRequest categoryUpdate) {
         categoryService.update(id, categoryUpdate);
         return ResponseEntity.ok().build();
     }

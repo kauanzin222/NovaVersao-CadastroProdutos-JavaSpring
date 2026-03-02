@@ -41,7 +41,7 @@ public class CategoryService {
         return categoryRepository.findAll().stream().map(c -> c.toDTO()).collect(Collectors.toList());
     }
 
-    public void update(int id, Category categoryUpdate) {
+    public void update(int id, CategoryRequest categoryUpdate) {
         Category category = getById(id);
         category.setName(categoryUpdate.getName());
 
