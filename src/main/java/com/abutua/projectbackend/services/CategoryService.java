@@ -1,6 +1,7 @@
 package com.abutua.projectbackend.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,14 +25,20 @@ public class CategoryService {
         return category;
     }
 
+    public CategoryResponse getDTOById(int id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category Not Found"));
+        return category.toDTO();
+    }
+
     public Category getById(int id) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category Not Found"));
         return category;
     }
 
-    public List<Category> getAll() {
-        return categoryRepository.findAll();
+    public List<CategoryResponse> getAll() {
+        return categoryRepository.findAll().stream().map(c -> c.toDTO()).collect(Collectors.toList());
     }
 
     public void update(int id, Category categoryUpdate) {
